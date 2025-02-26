@@ -34,7 +34,7 @@ float X_G = 0;             // X加速度 米每秒
 float Y_G = 0;             // Y加速度
 float Z_G = 0;             // Z加速度
 float Acc = 0;             // 合加速度 G
-int sensor_distance = 600;
+int sensor_distance = 600; //雷达高度
 int GPS_speed = 0;  // 地速
 int air_speed = -2; // 空速
 int D_Line = 5;     // 分化线比例
@@ -52,13 +52,7 @@ float climb = 0;
 float heading = 0;
 uint16_t throttle = 0;
 // mavlink参数设置
-uint8_t _system_id = 255;      // id of computer which is sending the command (ground control software has id of 255)
-uint8_t _component_id = 0;     // seems like it can be any # except the number of what Pixhawk sys_id is
-uint8_t _target_system = 1;    // Id #
-uint8_t _target_component = 0; // Target component, 0 = all (seems to work with 0 or 1
-uint16_t _command = MAV_CMD_REQUEST_MESSAGE;
-uint16_t _command_1 = MAV_CMD_SET_MESSAGE_INTERVAL;
-uint8_t _confirmation = 0;
+
 
 unsigned long int runTime = 0; // 从系统上电开始的运行时间
 int LOOP_DELAY = 40;           // 每多少毫秒系统更新一次状态

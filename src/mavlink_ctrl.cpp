@@ -3,13 +3,13 @@
 #include "common.h"
 
 // mavlink参数设置
-extern uint8_t _system_id = 255;      // id of computer which is sending the command (ground control software has id of 255)
-extern uint8_t _component_id = 0;     // seems like it can be any # except the number of what Pixhawk sys_id is
-extern uint8_t _target_system = 1;    // Id #
-extern uint8_t _target_component = 0; // Target component, 0 = all (seems to work with 0 or 1
-extern uint16_t _command = MAV_CMD_REQUEST_MESSAGE;
-extern uint16_t _command_1 = MAV_CMD_SET_MESSAGE_INTERVAL;
-extern uint8_t _confirmation = 0;
+uint8_t _system_id = 255;      // id of computer which is sending the command (ground control software has id of 255)
+uint8_t _component_id = 0;     // seems like it can be any # except the number of what Pixhawk sys_id is
+uint8_t _target_system = 1;    // Id #
+uint8_t _target_component = 0; // Target component, 0 = all (seems to work with 0 or 1
+uint16_t _command = MAV_CMD_REQUEST_MESSAGE;
+uint16_t _command_1 = MAV_CMD_SET_MESSAGE_INTERVAL;
+uint8_t _confirmation = 0;
 
 void set_request_datastream(int com_id, int D_T) // 设置MAVLINK通信速率
 {
@@ -40,7 +40,7 @@ void MavLink_receive() // 读取MAVLINK数据
     uint8_t c = Serial2.read();
 
     // Get new message
-    if (mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status))
+    if (mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) //逐字解析MAVLINK消息
     {
 
       // Handle new message from autopilot

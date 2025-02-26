@@ -1,3 +1,6 @@
+#ifndef __COMMON_H
+#define __COMMON_H
+
 #include <Arduino.h>
 
 extern float roll_converted;  // 横滚
@@ -38,8 +41,10 @@ extern int last_pitch;
 extern int test_roll;
 extern int delta;
 
-extern unsigned long redrawTime = 0;
+extern unsigned long redrawTime;
 
 void set_request_datastream(int com_id, int D_T);
 void request_datastream(); // 直接请求MAVLINK消息
 void MavLink_receive(); // 读取MAVLINK数据
+
+#endif
