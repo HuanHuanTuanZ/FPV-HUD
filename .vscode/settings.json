@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "cmath": "cpp"
+        "*.sqlbook": "sql",
+        "*.ndjson": "jsonl",
+        "*.dbclient-js": "javascript",
+        "cmath": "cpp",
+        "lovyangfx.hpp": "c",
+        "spi.h": "c"
     }
 }

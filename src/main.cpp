@@ -18,6 +18,8 @@ SCL D18
 //------------------------------------------------------------------
 
 #include <SPI.h>
+#include <mavlink_ctrl.h>
+
 
 //------------------------------------------------------------------
 static LGFX tft;
@@ -99,7 +101,7 @@ void request_datastream()
 }
 
 // function called by arduino to read any MAVlink messages sent by serial communication from flight controller to arduino
-void MavLink_receive() // MAVLINK READ
+void MavLink_receive() // 读取MAVLINK数据
 {
   mavlink_message_t msg;
   mavlink_status_t status;
@@ -417,9 +419,9 @@ void setup()
 void loop()
 {
   MavLink_receive();
+  request_datastream();
   if (millis() - runTime >= LOOP_DELAY)
   {
-    // request_datastream();
     img.fillRect(0, 0, 320, 240, TFT_BLACK); // 屏幕重置为黑色
     artificial_horizon_function();
     information_display();
